@@ -55,7 +55,7 @@ arcpy.DefineProjection_management(workspace + "\\splitPoints_" + str(divLength),
 arcpy.SplitLineAtPoint_management(input + "_break1", workspace + "\\splitPoints_" + str(divLength), input + "_split1", "1 Foot")
 
 # Provide all line segments with an Avg Slope field
-arcpy.ddd.AddSurfaceInformation(input + "_split1", "Database Connections\TIGGISDB_Images.sde\sde_images.GIS.LIDAR_2014_BE_DEM", "AVG_SLOPE", "LINEAR", "", 1, "")
+arcpy.ddd.AddSurfaceInformation(input + "_split1", DEM_loc, "AVG_SLOPE", "LINEAR", "", 1, "")
 
 # Use thresholds to group and dissolve line segments by slope in order to simplify data set
 arcpy.AddField_management(input + "_split1", "SLOPE_THRESH", "SHORT")
